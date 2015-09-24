@@ -1,0 +1,18 @@
+-DUSE_GLIDE
+-DUSE_OPENGL
+
+Not Good
+-DSDD1_VERIFY
+-DSPCTOOL
+-------------------------------------------------------------
+-DZLIB -DJOYSTICK_SUPPORT -DZSNES_C4 -DSPC700_C -DZSNES_FX -DMMX 
+-DUNZIP_SUPPORT -DEXECUTE_SUPERFX_PER_LINE -DVAR_CYCLES 
+-DNO_INLINE_SET_GET -DCPU_SHUTDOWN -DSPC700_SHUTDOWN 
+-DUSE_THREADS -O6 -march=pentium -fomit-frame-pointer -fno-exceptions 
+-Wall -pipe -DJMA_SUPPORT -fexceptions -DSDD1_DECOMP -DDEBUG
+
+
+-----------------------------------------------------------------------------------------------
+files
+netplay.o server.o
+AIDOOBJS = unix/aido.o

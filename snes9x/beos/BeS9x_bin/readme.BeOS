@@ -1,0 +1,104 @@
+========================================
+BeS9x (Super Nintendo Emulator) : Snes9x BeOS Port version 1.43
+========================================
+
+IMPORTANT!!!!
+Make sure that you disable any unused Joystick ports with no pads connected to them,
+BJoystick reports joysticks on these ports when there are none attached. Also be aware that
+if your using the PCI-Gameport driver, that if you open another application that uses a Joystick,
+and close that application then all joysticks are closed, so resulting in erratic controls in other apps. All other joystick drivers such as usb_joy do not show this behaviour.
+
+How To Disable Non existent Joysticks:
+	To disable any joystick ports with no joysticks connected to them, go to the Deskbar Menu then highlight Preferences and then select Joysticks, highlight any joysticks under the Game Port list and click the disabled checkbox for any or all of these ports if there is are no joysticks connected to these ports of course.
+
+Info:
+This is a BeOS port of the excellent Snes emulator Snes9x.
+Information about the authors of Snes9x's emulation core can be found at http://www.snes9x.com.
+BeOS port coded by me Carwyn Jones...., code from Unix, Win32 Snes9x ports has been used in the BeOS port where useful.
+
+BeOS specific changes in version 1.43:
+- Code from Haiku are used so that it might be BeOS friendly, this code can be removed when Haiku are released and BeOS/Zeta support are dropped.
+- Changed allot of code to be more Haiku friendly
+- include the png file in resource.
+- Added resent used rom file for easier access
+- All settings that exist from the snes9x.h (SSettings) are stored in this version, but not all are used or can be changed with GUI.
+- Overlay, Bitmap, DirectWindow and Fullscreen only allowed when they can be used. DirectWindow must be in Fullscreen.
+added it to the build and define :
+JMA
+Movie
+
+To do
+Overlay don't work when a rom are running in bitmap or DirectWindow and then switch to Overlay but works when Overlay are chosen before starting the rom
+Update gui with settings, most are dune but need to b
+
+BeOS specific changes in version 1.41-1:
+Standard DrawBitmap option for compatibility purposes
+Overlay, Bitmap, DirectWindow all in one.
+Vertical Sync option
+Extended Height option
+Save Spc option
+Modified and improved RGB16->YCbCr422 conversion.
+Various internal changes
+
+See Changes.txt for core changes.
+
+BeOS port Features:
+MMX DirectWindow Support
+B_YCbCr422 Overlay Support
+Normal Mode for cards that do not support DirectWindow in windowed mode.
+2x scaling modes, scanlines, 2xsai and so on.
+Vertical Sync
+Refresh Rate selection for fullscreen
+Controller configuration.
+FullScreen
+Sound
+Load/Save State
+Multiplayer
+Mouse
+SuperScope
+Automatic Hires support in scanlines, lcd and double modes for Chrono Trigger and so on.
+
+Keys, Various info:
+Go to the Options Menu, then Controls to configure your keys, joysticks etc
+Alt-1 ShowFrameRate
+Alt-7 Change controller type, mouse, superscope etc.
+Alt-F will switch to-from FullScreen
+Alt-M Mute
+Alt-P Pause Emulation
+Alt-R Reset
+Alt-S Save Spc
+Save game and snapshot files are saved in /boot/home/config/settings/snapshots/
+F1 .. F5 SaveState
+F6 .. F10 LoadState
+TAB -  Fast Forward, can be used to skip intros.
+
+Refresh Rate - This allows you to choose the fullscreen refresh rate, a higher refresh rate means that there is a reduced chance of tearing artifacts, the selected refresh rate is not saved when the application is closed, the same refresh rate may also be repeated in the menu selection, this is normal. A Refresh Rate of 60hz is used as default by BeS9x.
+
+Snooze - When snooze is enabled cpu usage is reduced, however on low end machines this option can be disabled to give more cpu to the application and boost performance.
+
+Vsync - This option is used to synchronize the screen update to your monitor's vertical sync, this option can be used to prevent tearing artifacts on the screen if you graphics card driver supports it, this option can be useful in a fullscreen 60hz mode. This option can cause a performance drop but turning snooze off can help in this case. Using Vsync only makes sense with a 60hz refresh rate as this is the update cycle in BeS9x.
+
+Joysticks Enabled - This option enables/disables Joystick input in the Controller configuration dialogs, it has been added because of a BeOS bug which involves non existent joysticks giving out rogue information because they don't exist.
+
+BeOS Thanks to:
+Christian Corona for his excellent feedback and bug reports, creating the icon for BeS9x and many other interface ideas.
+GoodOldGames, the top guy at BeEmulated or is he the top guy at OCP.
+Jack Burton
+
+General thanks to:
+The Snes9x team for creating a superb Snes emulator.
+Derek Liauw Kie Fa for his excellent 2xSaI graphics routines.
+
+Bugs and Feedback:
+I know most of the bugs but if you find a bug or have some feedback then send an email to the address below. When using 2xsai modes, deactivating/activating the window will fix any glitches in these modes.  There was an option that someone asked for to do with pausing when a menu was selected, this option is not available as it didn't work 100% consistently.
+
+Performance Tips for low end PC's:
+Use a 16bit desktop.
+Turn off Snooze so Snes9x can use as much cpu as possible.
+
+Minimum Specs and Requirements:
+Pentium with MMX needed
+DirectWindow window/fullscreen graphics card support
+
+Contact:
+turok2@currantbun.com or Fredrik Modéen <firstname@lastname.se>
