@@ -10,8 +10,8 @@
 #ifndef SNES_COLUM_LIST_VIEW
 #define SNES_COLUM_LIST_VIEW
 
-#include "libhaiku/ColumnListView.h"
-#include "libhaiku/ColumnTypes.h"
+#include <ColumnListView.h>
+#include <ColumnTypes.h>
 
 class DisplayModeColumnListView : public BColumnListView
 {

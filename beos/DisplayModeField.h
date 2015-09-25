@@ -14,8 +14,8 @@
 
 #include <Screen.h>
 
-#include "libhaiku/ColumnListView.h"
-#include "libhaiku/ColumnTypes.h"
+#include <ColumnListView.h>
+#include <ColumnTypes.h>
 
 class DisplayModeField : public BField
 {

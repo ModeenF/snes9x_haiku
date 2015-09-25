@@ -126,10 +126,6 @@ SRCS += ../jma/lzmadec.cpp
 SRCS += ../jma/s9x-jma.cpp
 SRCS += ../jma/winout.cpp
 
-#SRCS += libhaiku/ColorTools.cpp
-#SRCS += libhaiku/ColumnListView.cpp
-#SRCS += libhaiku/ColumnTypes.cpp
-
 #SRCS += ../i386/SPC.ASM
 #SRCS += ../i386/C4.ASM
 #SRCS += ../i386/2XSAIMMX.ASM
@@ -165,20 +161,18 @@ LIBS += device game media tracker translation
 #	be recursive, so include all of the paths where libraries can
 #	be found.  Directories where source files are found are
 #	automatically included.
-LIBPATHS += /boot/system/lib
+LIBPATHS = 
 
 #	additional paths to look for system headers
 #	thes use the form: #include <header>
 #	source file directories are NOT auto-included here
 SYSTEM_INCLUDE_PATHS += /boot/system/develop/headers/private/interface
 SYSTEM_INCLUDE_PATHS += /boot/system/develop/headers/os
-#SYSTEM_INCLUDE_PATHS += /boot/system/develop/headers/cpp
-#SYSTEM_INCLUDE_PATHS += /boot/system/develop/headers/posix
 
 #	additional paths to look for local headers
 #	thes use the form: #include "header"
 #	source file directories are automatically included
-LOCAL_INCLUDE_PATHS = #SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x SRCS += ../snes9x internal rominfo settings controll refresh libhaiku ../ internal controll libhaiku rominfo settings refresh
+LOCAL_INCLUDE_PATHS = 
 
 #	specify the level of optimization that you desire
 #	NONE, SOME, FULL
@@ -211,11 +205,11 @@ DEFINES += USE_THREADS
 DEFINES += UNZIP_SUPPORT
 DEFINES += VAR_CYCLES
 DEFINES += ZLIB 
-#DEFINES += EXECUTE_SUPERFX_PER_LINE
 #using ASM files
 #DEFINES += MMX
 #DEFINES += ZSNES_C4
 #DEFINES += ZSNES_FX
+#DEFINES += EXECUTE_SUPERFX_PER_LINE
 
 #	specify special warning levels
 #	if unspecified default warnings will be used
@@ -235,8 +229,6 @@ DEBUGGER =
 
 #	specify additional compiler flags for all files
 COMPILER_FLAGS=-funsigned-bitfields -Wwrite-strings -O6 -march=pentium -fomit-frame-pointer -fno-exceptions -Wall -pipe -fexceptions
-#COMPILER_FLAGS=-funsigned-bitfields -Wwrite-strings -DZLIB -DJOYSTICK_SUPPORT -DZSNES_C4 -DSPC700_C -DZSNES_FX -DMMX -DUNZIP_SUPPORT -DEXECUTE_SUPERFX_PER_LINE -DVAR_CYCLES -DNO_INLINE_SET_GET -DCPU_SHUTDOWN -DSPC700_SHUTDOWN -DUSE_THREADS -O6 -march=pentium -fomit-frame-pointer -fno-exceptions -Wall -pipe -DJMA_SUPPORT -fexceptions -DSDD1_DECOMP -DDEBUG -DMITSHM -DNETPLAY_SUPPORT
-#COMPILER_FLAGS =
 
 #	specify additional linker flags
 LINKER_FLAGS =
