@@ -140,7 +140,7 @@ S9xMainWindow::StartS9x()
 	}
 	exiting = false;
 	DePause();
-	thread = spawn_thread(fThread, S9x_WINDOWNAME, B_NORMAL_PRIORITY, (void *)this);
+	thread = spawn_thread(mainwindow_thread, S9x_WINDOWNAME, B_NORMAL_PRIORITY, (void *)this);
 	resume_thread(thread);
 	fGameMenuBar->ToggleRomInfoMenu(true);
 	return true;
@@ -738,7 +738,7 @@ S9xMainWindow::SetDrawMode(int d_mode, bool runDirectWindow)
 void
 S9xMainWindow::ChangeControllers()
 {
-	static char *controllers [] = {"Multiplayer 5 on #0", "Joypad on #0", "Mouse on #1", 
+	static const char *controllers [] = {"Multiplayer 5 on #0", "Joypad on #0", "Mouse on #1", 
 		"Mouse on #0", "Superscope on #1", "Justifier 1 on #1", "Justifier 2 on #1"};
 		
 	S9xNextController();

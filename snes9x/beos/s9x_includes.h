@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/dir.h>
+//#include <sys/dir.h>
 #include <ctype.h>
 #include <errno.h>
 #include <StopWatch.h>

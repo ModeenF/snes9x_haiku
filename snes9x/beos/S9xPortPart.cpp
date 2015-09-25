@@ -81,7 +81,7 @@ InitTimer()
 
 
 int32
-fThread(void *o)
+mainwindow_thread(void *o)
 {
 	S9xMainWindow *w = (S9xMainWindow *)o;
 	s9x = w;
@@ -378,7 +378,13 @@ S9xGetFilename (const char *ex)
 const char*
 GetHomeDirectory ()
 {
-    return (getenv ("HOME"));
+	BPath path;
+	if(find_directory(B_USER_DIRECTORY, &path, true) != B_OK)
+		path.SetTo(S9x_HOMEPATH);
+		
+	return path.Path();
+	//Old way	
+	//return (getenv ("HOME"));
 }
 
 
@@ -388,7 +394,8 @@ S9xGetSnapshotDirectory ()
 	static char filename [PATH_MAX];
 	BPath path;
 	if(find_directory(B_USER_SETTINGS_DIRECTORY, &path, true) != B_OK)
-	path.SetTo(S9x_SETTINGSPATH);
+		path.SetTo(S9x_SETTINGSPATH);
+
 	path.Append(S9x_SNAPSHOTDIR);
 	strcpy(filename, path.Path());
 	mkdir (filename, 0777);

@@ -159,7 +159,8 @@ void GetSettings(s9x_settings &settings)
 	BPath path;
 	BMessage snes9x;
 	if(find_directory(B_USER_SETTINGS_DIRECTORY, &path, true) != B_OK)
-	path.SetTo(S9x_SETTINGSPATH);
+		path.SetTo(S9x_SETTINGSPATH);
+
 	path.Append(S9x_SETTINGSFILENAME);
 	
 	BFile settings_file(path.Path(), B_READ_ONLY);
@@ -368,6 +369,9 @@ static inline status_t SaveInt32(BMessage &msg, const char *string, int32 data)
 
 static inline status_t SaveString(BMessage &msg, const char *string, BString data)
 {
+	if(data == NULL || data.IsEmpty())
+		return B_ERROR;
+	
 	if(msg.ReplaceString(string, data) == B_NAME_NOT_FOUND)
 		return msg.AddString(string, data);
 	return msg.ReplaceString(string, data);
@@ -379,7 +383,8 @@ void SetSettings(const s9x_settings &settings)
 	BPath path;
 	BMessage snes9x;
 	if(find_directory(B_USER_SETTINGS_DIRECTORY, &path, true) != B_OK)
-	path.SetTo(S9x_SETTINGSPATH);
+		path.SetTo(S9x_SETTINGSPATH);
+
 	path.Append(S9x_SETTINGSFILENAME);
 	
 	BFile settings_file(path.Path(), B_READ_WRITE | B_CREATE_FILE);
@@ -457,7 +462,7 @@ void SetSettings(const s9x_settings &settings)
 	//s9x_Network
 	SaveInt8(snes9x, "s9x_NetPlay", settings.network.s9x_NetPlay);
 	SaveInt8(snes9x, "s9x_NetPlayServer", settings.network.s9x_NetPlayServer);
-	SaveString(snes9x, "s9x_ServerName", settings.network.s9x_ServerName);
+//	SaveString(snes9x, "s9x_ServerName", settings.network.s9x_ServerName);
 	SaveInt32(snes9x, "s9x_Port", settings.network.s9x_Port);
 
 	//s9x_Misc
@@ -470,11 +475,11 @@ void SetSettings(const s9x_settings &settings)
 	SaveInt8(snes9x, "s9x_AutoSaveDelay", settings.misc.s9x_AutoSaveDelay);
 	
 	//RecentRoms
-	SaveString(snes9x, "recentRom1", settings.recentroms.recentRom1);
-	SaveString(snes9x, "recentRom2", settings.recentroms.recentRom2);
-	SaveString(snes9x, "recentRom3", settings.recentroms.recentRom3);
-	SaveString(snes9x, "recentRom4", settings.recentroms.recentRom4);
-	SaveString(snes9x, "recentRom5", settings.recentroms.recentRom5);
+//	SaveString(snes9x, "recentRom1", settings.recentroms.recentRom1);
+//	SaveString(snes9x, "recentRom2", settings.recentroms.recentRom2);
+//	SaveString(snes9x, "recentRom3", settings.recentroms.recentRom3);
+//	SaveString(snes9x, "recentRom4", settings.recentroms.recentRom4);
+//	SaveString(snes9x, "recentRom5", settings.recentroms.recentRom5);
 	
 	// Ui
 	SaveInt8(snes9x, "s9x_mode", settings.ui.s9x_mode);

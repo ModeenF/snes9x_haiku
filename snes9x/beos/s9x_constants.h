@@ -4,6 +4,7 @@
 #include <SupportDefs.h> 
 
 #define S9x_SETTINGSPATH "/boot/home/config/settings"
+#define S9x_HOMEPATH "/boot/home"
 #define S9x_SETTINGSFILENAME "s9x_settings"
 #define S9x_SNAPSHOTDIR "snapshots"
 #define S9x_FILESRM ".srm"

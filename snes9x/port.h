@@ -150,7 +150,7 @@ typedef unsigned char uint8;
 typedef unsigned short uint16;
 typedef signed char int8;
 typedef short int16;
-#ifdef __BEOS__
+#ifdef __HAIKU__
 typedef long int32;
 typedef unsigned long uint32;
 #else
@@ -215,6 +215,7 @@ typedef __int64 int64;
 #define END_EXTERN_C
 #endif
 #endif
+
 
 #ifndef __WIN32__
 

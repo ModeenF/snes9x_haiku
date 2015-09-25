@@ -43,7 +43,7 @@ S9xApp::AboutRequested(void)
 	<< "\n\n" << "Emulation Core: "
 	<< "\nby The Snes9x team"
 	<< "\n(http://www.snes9x.com)" 
-	<< "\n\nBeOS version: "
+	<< "\n\nHAIKU version: "
 	<< " \nby Caz (Carwyn Jones)"
 	<< "\n\nUpdated to 1.43 + some changes by:"
 	<< "\nModeenF (Fredrik Modéen)"

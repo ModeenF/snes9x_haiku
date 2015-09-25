@@ -120,7 +120,7 @@ extern uint8 *HDMABasePointers [8];
 uint32 HDMARawPointers[8];	// Cart address space pointer
 #endif
 
-#if defined(__linux__) || defined(__WIN32__) || defined(__MACOSX__) || defined(__BEOS__)
+#if defined(__linux__) || defined(__WIN32__) || defined(__MACOSX__) || defined(__HAIKU__)
 static int S9xCompareSDD1IndexEntries (const void *p1, const void *p2)
 {
     return (*(uint32 *) p1 - *(uint32 *) p2);
@@ -232,7 +232,7 @@ void S9xDoDMA (uint8 Channel)
 			else
 			{
 #endif
-#if defined(__linux__) || defined (__WIN32__) || defined(__MACOSX__) || defined(__BEOS__)
+#if defined(__linux__) || defined (__WIN32__) || defined(__MACOSX__) || defined(__HAIKU__)
 			void *ptr = bsearch (&address, Memory.SDD1Index, 
 				Memory.SDD1Entries, 12, S9xCompareSDD1IndexEntries);
 			if (ptr)

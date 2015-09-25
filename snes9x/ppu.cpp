@@ -103,14 +103,14 @@
 #include "spc7110.h"
 #include "movie.h"
 
-#ifndef ZSNES_FX
+//#ifndef ZSNES_FX
 #include "fxemu.h"
 #include "fxinst.h"
 extern struct FxInit_s SuperFX;
-#else
+/*#else
 EXTERN_C void S9xSuperFXWriteReg (uint8, uint32);
 EXTERN_C uint8 S9xSuperFXReadReg (uint32);
-#endif
+#endif*/
 
 uint32 justifiers=0xFFFF00AA;
 uint8 in_bit=0;
@@ -3133,16 +3133,16 @@ void S9xSuperFXExec ()
 	    (Memory.FillRAM [0x3000 + GSU_SCMR] & 0x18) == 0x18)
 	{
 	    if (!Settings.WinterGold||Settings.StarfoxHack)
-		FxEmulate (~0);
+			FxEmulate (~0);
 	    else
-		FxEmulate ((Memory.FillRAM [0x3000 + GSU_CLSR] & 1) ? 700 : 350);
+			FxEmulate ((Memory.FillRAM [0x3000 + GSU_CLSR] & 1) ? 700 : 350);
+			
 	    int GSUStatus = Memory.FillRAM [0x3000 + GSU_SFR] |
 			    (Memory.FillRAM [0x3000 + GSU_SFR + 1] << 8);
-	    if ((GSUStatus & (FLG_G | FLG_IRQ)) == FLG_IRQ)
-	    {
-		// Trigger a GSU IRQ.
-		S9xSetIRQ (GSU_IRQ_SOURCE);
-	    }
+	    if ((GSUStatus & (FLG_G | FLG_IRQ)) == FLG_IRQ) {
+			// Trigger a GSU IRQ.
+			S9xSetIRQ (GSU_IRQ_SOURCE);
+		}
 	}
     }
 #else
