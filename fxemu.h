@@ -125,7 +125,7 @@ struct FxInit_s
 extern void FxReset(struct FxInit_s *psFxInfo);
 
 /* Execute until the next stop instruction */
-extern int FxEmulate(uint32 nInstructions);
+extern int FxEmulate(unsigned long nInstructions);
 
 /* Write access to the cache */
 extern void FxCacheWriteAccess(uint16 vAddress);

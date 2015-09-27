@@ -606,7 +606,7 @@ static uint8 fx_checkStartAddress()
 }
 
 /* Execute until the next stop instruction */
-int FxEmulate(uint32 nInstructions)
+int FxEmulate(unsigned long nInstructions)
 {
     uint32 vCount;
 
